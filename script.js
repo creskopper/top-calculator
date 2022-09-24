@@ -48,19 +48,25 @@ listOfBtn.map(btn => {
 
             if (operatorClicked) {
                 secondNumber = displayValue;
+                solution = operate(Number(firstNumber), Number(secondNumber), operator);
             }
         }
 
         if (btn.classList.value == "btn operator") {
             operatorClicked = true;
+            secondNumber = null;
 
-            firstNumber = displayValue;
+            if (solution == null) firstNumber = displayValue;
+            else {
+                firstNumber = solution;
+                display.textContent = solution;
+            }
+
             operator = btn.textContent;
             displayValue = "";
         }
 
         if (btn.id == "equal") {
-            solution = operate(Number(firstNumber), Number(secondNumber), operator);
             display.textContent = solution;
             firstNumber = null;
             secondNumber = null;
