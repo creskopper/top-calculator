@@ -58,7 +58,8 @@ listOfBtn.map(btn => {
 
             if (operatorClicked) {
                 secondNumber = displayValue;
-                if (secondNumber == 0) solution = "Error";
+
+                if ((operator == "÷") && (secondNumber == 0)) solution = "Error";
                 else if (firstNumber == "Error") solution = "Error";
                 else solution = operate(Number(firstNumber), Number(secondNumber), operator);
             }
