@@ -42,9 +42,19 @@ let operatorClicked = false;
 
 listOfBtn.map(btn => {
     btn.addEventListener("click", () => {
+
+        // Digit Button
         if (btn.classList.value == "btn digit") {
-            displayValue += btn.textContent;
-            display.textContent = displayValue;
+
+            if (displayValue.includes(".") && btn.id == "point") return;
+            if (displayValue == "" && btn.id == "point") {
+                displayValue = "0.";
+                display.textContent = displayValue;
+            } else {
+                displayValue += btn.textContent;
+                display.textContent = displayValue;
+            }
+
 
             if (operatorClicked) {
                 secondNumber = displayValue;
@@ -54,6 +64,7 @@ listOfBtn.map(btn => {
             }
         }
 
+        // Operator Button
         if (btn.classList.value == "btn operator") {
             operatorClicked = true;
             secondNumber = null;
@@ -68,6 +79,7 @@ listOfBtn.map(btn => {
             displayValue = "";
         }
 
+        // Equal Button
         if (btn.id == "equal") {
             display.textContent = solution;
             firstNumber = null;
@@ -76,6 +88,7 @@ listOfBtn.map(btn => {
             displayValue = "";
         }
 
+        // Clear Button
         if (btn.id == "clear") {
             operatorClick = false;
             displayValue = "";
