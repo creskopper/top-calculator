@@ -45,9 +45,15 @@ listOfBtn.map(btn => {
         if (btn.classList.value == "btn digit") {
             displayValue += btn.textContent;
             display.textContent = displayValue;
+
+            if (operatorClicked) {
+                secondNumber = displayValue;
+            }
         }
 
         if (btn.classList.value == "btn operator") {
+            operatorClicked = true;
+            
             firstNumber = displayValue;
             operator = btn.textContent;
             displayValue = "";
