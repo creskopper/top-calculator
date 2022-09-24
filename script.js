@@ -40,87 +40,92 @@ let operator = null;
 let solution = null;
 let operatorClicked = false;
 
+function populate(btn) {
+
+    // Digit Button
+    if (btn.classList.value == "btn digit") {
+
+        if (displayValue.includes(".") && btn.id == "point") return;
+        if (displayValue == "" && btn.id == "point") {
+            displayValue = "0.";
+            display.textContent = displayValue;
+        } else {
+            displayValue += btn.textContent;
+            display.textContent = displayValue;
+        }
+
+
+        if (operatorClicked) {
+            secondNumber = displayValue;
+
+            if ((operator == "÷") && (secondNumber == 0)) solution = "Error";
+            else if (firstNumber == "Error") solution = "Error";
+            else {
+                solution = operate(Number(firstNumber), Number(secondNumber), operator);
+                // solution = parseFloat(solution.toFixed(8));
+            }
+        }
+    }
+
+    // Operator Button
+    if (btn.classList.value == "btn operator") {
+        operatorClicked = true;
+        secondNumber = null;
+
+        if (solution == null) firstNumber = displayValue;
+        else {
+            firstNumber = solution;
+            display.textContent = solution;
+        }
+
+        operator = btn.textContent;
+        displayValue = "";
+    }
+
+    // Equal Button
+    if (btn.id == "equal") {
+        display.textContent = solution;
+        firstNumber = null;
+        secondNumber = null;
+        operator = null;
+        displayValue = "";
+    }
+
+    // Clear Button
+    if (btn.id == "clear") {
+        operatorClick = false;
+        displayValue = "";
+        display.textContent = "0";
+        firstNumber = null;
+        secondNumber = null;
+        operator = null;
+        solution = null;
+    }
+
+    // Backspace Button
+    if (btn.id == "backspace") {
+
+        if (displayValue.length == 0) return;
+        else if (displayValue.length == 1) {
+            displayValue = "";
+            secondNumber = displayValue;
+            solution = operate(Number(firstNumber), Number(secondNumber), operator);
+            // solution = parseFloat(solution.toFixed(8));
+            display.textContent = "0";
+        } else {
+            displayValue = displayValue.slice(0, displayValue.length-1);
+            secondNumber = displayValue;
+            solution = operate(Number(firstNumber), Number(secondNumber), operator);
+            // solution = parseFloat(solution.toFixed(8));
+            display.textContent = displayValue;
+        }
+    }
+}
+
 listOfBtn.map(btn => {
     btn.addEventListener("click", () => {
 
-        // Digit Button
-        if (btn.classList.value == "btn digit") {
-
-            if (displayValue.includes(".") && btn.id == "point") return;
-            if (displayValue == "" && btn.id == "point") {
-                displayValue = "0.";
-                display.textContent = displayValue;
-            } else {
-                displayValue += btn.textContent;
-                display.textContent = displayValue;
-            }
-
-
-            if (operatorClicked) {
-                secondNumber = displayValue;
-
-                if ((operator == "÷") && (secondNumber == 0)) solution = "Error";
-                else if (firstNumber == "Error") solution = "Error";
-                else {
-                    solution = operate(Number(firstNumber), Number(secondNumber), operator);
-                    // solution = parseFloat(solution.toFixed(8));
-                }
-            }
-        }
-
-        // Operator Button
-        if (btn.classList.value == "btn operator") {
-            operatorClicked = true;
-            secondNumber = null;
-
-            if (solution == null) firstNumber = displayValue;
-            else {
-                firstNumber = solution;
-                display.textContent = solution;
-            }
-
-            operator = btn.textContent;
-            displayValue = "";
-        }
-
-        // Equal Button
-        if (btn.id == "equal") {
-            display.textContent = solution;
-            firstNumber = null;
-            secondNumber = null;
-            operator = null;
-            displayValue = "";
-        }
-
-        // Clear Button
-        if (btn.id == "clear") {
-            operatorClick = false;
-            displayValue = "";
-            display.textContent = "0";
-            firstNumber = null;
-            secondNumber = null;
-            operator = null;
-            solution = null;
-        }
-
-        // Backspace Button
-        if (btn.id == "backspace") {
-
-            if (displayValue.length == 0) return;
-            else if (displayValue.length == 1) {
-                displayValue = "";
-                secondNumber = displayValue;
-                solution = operate(Number(firstNumber), Number(secondNumber), operator);
-                // solution = parseFloat(solution.toFixed(8));
-                display.textContent = "0";
-            } else {
-                displayValue = displayValue.slice(0, displayValue.length-1);
-                secondNumber = displayValue;
-                solution = operate(Number(firstNumber), Number(secondNumber), operator);
-                // solution = parseFloat(solution.toFixed(8));
-                display.textContent = displayValue;
-            }
-        }
+        populate(btn);
 
         console.log({displayValue}, {firstNumber}, {operator}, {secondNumber}, "=", {solution});
 
