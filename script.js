@@ -46,5 +46,15 @@ listOfBtn.map(btn => {
             displayValue += btn.textContent;
             display.textContent = displayValue;
         }
+
+        if (btn.classList.value == "btn operator") {
+            firstNumber = displayValue;
+            operator = btn.textContent;
+            displayValue = "";
+        }
+
+        console.log({displayValue}, {firstNumber}, {operator}, {secondNumber}, "=", {solution});
+
+
     })
 })
