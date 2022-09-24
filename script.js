@@ -53,14 +53,22 @@ listOfBtn.map(btn => {
 
         if (btn.classList.value == "btn operator") {
             operatorClicked = true;
-            
+
             firstNumber = displayValue;
             operator = btn.textContent;
             displayValue = "";
         }
 
-        console.log({displayValue}, {firstNumber}, {operator}, {secondNumber}, "=", {solution});
+        if (btn.id == "equal") {
+            solution = operate(Number(firstNumber), Number(secondNumber), operator);
+            display.textContent = solution;
+            firstNumber = null;
+            secondNumber = null;
+            operator = null;
+            displayValue = "";
+        }
 
+        console.log({displayValue}, {firstNumber}, {operator}, {secondNumber}, "=", {solution});
 
     })
 })
