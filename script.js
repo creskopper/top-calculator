@@ -74,6 +74,16 @@ listOfBtn.map(btn => {
             displayValue = "";
         }
 
+        if (btn.id == "clear") {
+            operatorClick = false;
+            displayValue = "";
+            display.textContent = "0";
+            firstNumber = null;
+            secondNumber = null;
+            operator = null;
+            solution = null;
+        }
+
         console.log({displayValue}, {firstNumber}, {operator}, {secondNumber}, "=", {solution});
 
     })
