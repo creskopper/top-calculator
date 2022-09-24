@@ -14,7 +14,7 @@ body {
 
 .calculator-container {
     background-color: black;
-    padding: 3rem 1rem 1.6rem;
+    padding: 2rem 1rem;
     border-radius: 8px;
 }
 
@@ -22,7 +22,7 @@ body {
     color: #fff;
     background-color: #111;
     text-align: right;
-    padding: 1.4rem 0.6rem;
+    padding: 1rem;
     font-size: 2rem;
     border: 1px solid #444;
     border-radius: 8px;
