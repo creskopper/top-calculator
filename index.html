@@ -12,29 +12,29 @@
     <div class="calculator-container">
         <div class="display">0</div>
         <div class="keys">
-            <button id="backspace" class="btn">Backspace</button>
-            <button id="clear" class="btn">C</button>
-            <button class="btn operator">÷</button>
+            <button data-general-key="Backspace" id="backspace" class="btn">Backspace</button>
+            <button data-general-key="Delete" id="clear" class="btn">C</button>
+            <button data-general-key="Slash" data-numpad-key="NumpadDivide" class="btn operator">÷</button>
 
-            <button class="btn digit">7</button>
-            <button class="btn digit">8</button>
-            <button class="btn digit">9</button>
-            <button class="btn operator">x</button>
+            <button data-general-key="Digit7" data-numpad-key="Numpad7" class="btn digit">7</button>
+            <button data-general-key="Digit8" data-numpad-key="Numpad8" class="btn digit">8</button>
+            <button data-general-key="Digit9" data-numpad-key="Numpad9" class="btn digit">9</button>
+            <button data-numpad-key="NumpadMultiply" class="btn operator">x</button>
 
-            <button class="btn digit">4</button>
-            <button class="btn digit">5</button>
-            <button class="btn digit">6</button>
-            <button class="btn operator">-</button>
+            <button data-general-key="Digit4" data-numpad-key="Numpad4" class="btn digit">4</button>
+            <button data-general-key="Digit5" data-numpad-key="Numpad5" class="btn digit">5</button>
+            <button data-general-key="Digit6" data-numpad-key="Numpad6" class="btn digit">6</button>
+            <button data-general-key="Minus" data-numpad-key="NumpadSubtract" class="btn operator">-</button>
 
 
-            <button class="btn digit">1</button>
-            <button class="btn digit">2</button>
-            <button class="btn digit">3</button>
-            <button class="btn operator">+</button>
+            <button data-general-key="Digit1" data-numpad-key="Numpad1" class="btn digit">1</button>
+            <button data-general-key="Digit2" data-numpad-key="Numpad2" class="btn digit">2</button>
+            <button data-general-key="Digit3" data-numpad-key="Numpad3" class="btn digit">3</button>
+            <button data-numpad-key="NumpadAdd" class="btn operator">+</button>
             
-            <button id="zero" class="btn digit">0</button>
-            <button id="point" class="btn digit">.</button>
-            <button id="equal" class="btn">=</button>
+            <button data-general-key="Digit0" data-numpad-key="Numpad0" id="zero" class="btn digit">0</button>
+            <button data-general-key="Period" data-numpad-key="NumpadDecimal" id="point" class="btn digit">.</button>
+            <button data-general-key="Enter" data-numpad-key="NumpadEnter" id="equal" class="btn">=</button>
         </div>
     </div>
 </body>
