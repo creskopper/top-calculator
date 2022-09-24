@@ -63,7 +63,7 @@ listOfBtn.map(btn => {
                 else if (firstNumber == "Error") solution = "Error";
                 else {
                     solution = operate(Number(firstNumber), Number(secondNumber), operator);
-                    solution = parseFloat(solution.toFixed(8));
+                    // solution = parseFloat(solution.toFixed(8));
                 }
             }
         }
@@ -111,13 +111,13 @@ listOfBtn.map(btn => {
                 displayValue = "";
                 secondNumber = displayValue;
                 solution = operate(Number(firstNumber), Number(secondNumber), operator);
-                solution = parseFloat(solution.toFixed(8));
+                // solution = parseFloat(solution.toFixed(8));
                 display.textContent = "0";
             } else {
                 displayValue = displayValue.slice(0, displayValue.length-1);
                 secondNumber = displayValue;
                 solution = operate(Number(firstNumber), Number(secondNumber), operator);
-                solution = parseFloat(solution.toFixed(8));
+                // solution = parseFloat(solution.toFixed(8));
                 display.textContent = displayValue;
             }
         }
