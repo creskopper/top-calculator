@@ -62,7 +62,8 @@ function populate(btn) {
             else if (firstNumber == "Error") solution = "Error";
             else {
                 solution = operate(Number(firstNumber), Number(secondNumber), operator);
-                // solution = parseFloat(solution.toFixed(8));
+                if (solution ==  null) return;
+                else solution = parseFloat(solution.toFixed(8));    
             }
         }
     }
@@ -111,20 +112,22 @@ function populate(btn) {
         if (displayValue.length == 0) return;
         else if (displayValue.length == 1) {
             displayValue = "";
+            display.textContent = "0";
             secondNumber = displayValue;
             solution = operate(Number(firstNumber), Number(secondNumber), operator);
-            // solution = parseFloat(solution.toFixed(8));
-            display.textContent = "0";
+            if (solution ==  null) return;
+            else solution = parseFloat(solution.toFixed(8));
         } else {
             displayValue = displayValue.slice(0, displayValue.length-1);
+            display.textContent = displayValue;
             secondNumber = displayValue;
             solution = operate(Number(firstNumber), Number(secondNumber), operator);
-            // solution = parseFloat(solution.toFixed(8));
-            display.textContent = displayValue;
+            if (solution ==  null) return;
+            else solution = parseFloat(solution.toFixed(8));
         }
     }
 
-    console.log({displayValue}, {firstNumber}, {operator}, {secondNumber}, "=", {solution});
+    // console.log({displayValue}, {firstNumber}, {operator}, {secondNumber}, "=", {solution});
 }
 
 listOfBtn.map(btn => {
