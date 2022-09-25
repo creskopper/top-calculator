@@ -127,8 +127,6 @@ listOfBtn.map(btn => {
 
         populate(btn);
 
-        console.log({displayValue}, {firstNumber}, {operator}, {secondNumber}, "=", {solution});
-
     })
 })
 
