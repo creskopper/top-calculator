@@ -84,11 +84,14 @@ function populate(btn) {
 
     // Equal Button
     if (btn.id == "equal") {
-        display.textContent = solution;
-        firstNumber = null;
-        secondNumber = null;
-        operator = null;
-        displayValue = "";
+        if (solution == undefined) return;
+        else {
+            display.textContent = solution;
+            firstNumber = null;
+            secondNumber = null;
+            operator = null;
+            displayValue = "";
+        }
     }
 
     // Clear Button
@@ -120,6 +123,8 @@ function populate(btn) {
             display.textContent = displayValue;
         }
     }
+
+    console.log({displayValue}, {firstNumber}, {operator}, {secondNumber}, "=", {solution});
 }
 
 listOfBtn.map(btn => {
