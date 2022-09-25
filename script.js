@@ -134,9 +134,10 @@ window.addEventListener("keydown", (e) => {
     const generalKey = document.querySelector(`button[data-general-key="${e.code}"]`);
     if (!generalKey) return;
     populate(generalKey);
+})
 
+window.addEventListener("keydown", (e) => {
     const numpadKey = document.querySelector(`button[data-numpad-key="${e.code}"]`);
     if (!numpadKey) return;
     populate(numpadKey);
-
 })
