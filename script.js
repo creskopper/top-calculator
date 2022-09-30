@@ -45,6 +45,8 @@ function populate(btn) {
     // Digit Button
     if (btn.classList.value == "btn digit") {
 
+        if (displayValue.length == 9) return;
+
         if (displayValue.includes(".") && btn.id == "point") return;
         if (displayValue == "" && btn.id == "point") {
             displayValue = "0.";
